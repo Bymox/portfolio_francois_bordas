@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voyages — François Bordas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Page-specific styles (keeps global stylesheet for general look) */
+    .hero-inner { display:flex; align-items:center; gap:24px; max-width:1100px; margin:0 auto; justify-content:space-between; }
+    .hero-left { display:flex; gap:16px; align-items:center; }
+    .back-link { display:inline-block; margin-right:16px; font-weight:600; text-decoration:none; color:var(--text); }
+    .map-wrap { max-width:1100px; margin:18px auto 6px; padding:0 18px; }
+    #mapImage {
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:78vh; /* keep it large but not overflow the viewport */
+      object-fit:contain;
+      border-radius:10px;
+      box-shadow: var(--card-shadow);
+      background: transparent;
+    }
+    /* legend placed below map as a long horizontal row */
+    .legend {
+      max-width:1100px;
+      margin:12px auto 30px;
+      padding:0 18px;
+      display:flex;
+      gap:22px;
+      align-items:center;
+      flex-wrap:wrap;
+      font-size:0.98rem;
+      color:var(--text);
+      line-height:1.4;
+    }
+    .legend-item { display:flex; gap:10px; align-items:center; min-width:220px; }
+    .swatch {
+      width:18px;
+      height:18px;
+      border-radius:4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      flex:0 0 18px;
+    }
+    /* colors adapt to mode */
+    .swatch.visited { background: var(--accent); }            /* blue-ish */
+    .swatch.wishlist { background: #ff9a3c; }                 /* orange */
+
+    /* slight adjustments in dark mode */
+    body.dark .swatch.visited { background: var(--accent); filter: brightness(1.05) saturate(1.02); }
+    body.dark .swatch.wishlist { background: #ffb36a; }
+
+    /* explanatory paragraph long form under legend */
+    .explain {
+      max-width:1100px;
+      margin: 6px auto 40px;
+      padding: 0 18px;
+      color: var(--muted);
+      font-size:0.98rem;
+      line-height:1.6;
+    }
+
+    /* make header controls consistent with your other pages */
+    .controls { display:flex; gap:12px; align-items:center; }
+    .header-links { display:flex; gap:12px; align-items:center; margin-right:8px; }
+
+    @media (max-width:720px){
+      .legend-item { min-width: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" aria-labelledby="pageTitle">
+    <div class="hero-inner">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <a id="backLink" href="../index.html" class="back-link" aria-label="Retour">← Retour</a>
+        <div>
+          <h1 id="pageTitle" style="margin:0;">Voyages</h1>
+          <p id="pageSubtitle" style="margin:.25rem 0 0;color:var(--muted);font-size:0.98rem;">
+            Les pays visités & ceux que je souhaite découvrir
+          </p>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:12px;">
+        <!-- <div class="header-links" id="headerLinks" aria-hidden="false">
+          <a id="linkLinkedin" href="https://www.linkedin.com/in/françois-bordas13" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a id="linkCV" href="../assets/pdfs/CV_fr.pdf" target="_blank" rel="noopener">⬇️ CV</a>
+        </div> -->
+
+        <div class="controls" aria-hidden="false">
+          <!-- Dark/Light mode toggle -->
+          <label class="switch small-switch" title="Mode sombre / clair" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label" aria-hidden="true">☀️</span>
+            <input type="checkbox" id="darkToggle" aria-label="Basculer mode sombre">
+            <span class="slider" aria-hidden="true"></span>
+            <span class="icon-label" aria-hidden="true">🌙</span>
+          </label>
+
+          <!-- Language toggle -->
+          <label class="switch small-switch" title="FR / EN" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label" aria-hidden="true">FR</span>
+            <input type="checkbox" id="langToggle" aria-label="Basculer langue">
+            <span class="slider" aria-hidden="true"></span>
+            <span class="icon-label" aria-hidden="true">EN</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- big map -->
+    <div class="map-wrap" role="figure" aria-label="Carte du monde — voyages">
+      <img id="mapImage" src="../assets/images/world_map_bright.png" alt="Carte du monde — pays visités en bleu, voyages souhaités en orange">
+    </div>
+
+    <!-- long legend below the map -->
+    <div class="legend" aria-hidden="false">
+      <div class="legend-item">
+        <div class="swatch visited" aria-hidden="true"></div>
+        <div id="legendVisited">Pays déjà visités</div>
+      </div>
+      <div class="legend-item">
+        <div class="swatch wishlist" aria-hidden="true"></div>
+        <div id="legendWishlist">Pays que je souhaite visiter</div>
+      </div>
+      <div class="legend-item" style="min-width:320px;">
+        <strong id="legendHeading" style="margin-right:8px;">Légende</strong>
+        <span id="legendNote" style="color:var(--muted); font-weight:400;">Les marquages sont indicatifs.</span>
+      </div>
+    </div>
+
+    <div class="explain">
+      <h2 id="explainTitle" style="margin:.25rem 0 6px 0;">Carte des voyages</h2>
+      <p id="explainText">Les pays colorés en bleu représentent ceux que j'ai déjà visités. Les pays colorés en orange représentent ceux que je souhaiterais visiter un jour.</p>
+    </div>
+  </main>
+
+  <!-- no footer back as requested -->
+
+  <script>
+  /* ---------- Texts FR / EN ---------- */
+  const TEXT = {
+    fr: {
+      pageTitle: "Voyages",
+      pageSubtitle: "Les pays visités & ceux à venir",
+      legendVisited: "Pays déjà visités",
+      legendWishlist: "Pays que je souhaite visiter",
+      explainTitle: "Carte des voyages",
+      explainText: "Les pays colorés en bleu représentent ceux que j'ai déjà visités. Les pays colorés en orange représentent ceux que je souhaiterais visiter un jour.",
+      linkedinText: "🔗 LinkedIn",
+      cvText: "⬇️ CV"
+    },
+    en: {
+      pageTitle: "Travels",
+      pageSubtitle: "Countries visited & places to go",
+      legendVisited: "Countries I've visited",
+      legendWishlist: "Countries I'd like to visit",
+      explainTitle: "Travel map",
+      explainText: "Blue countries are places I've already visited. Orange countries are places I'd like to visit someday.",
+      linkedinText: "🔗 LinkedIn",
+      cvText: "⬇️ Resume"
+    }
+  };
+
+  /* ---------- Helpers ---------- */
+  function getStoredLang(){
+    const s = localStorage.getItem('siteLang');
+    if(s) return s === 'en' ? 'en' : 'fr';
+    return (navigator.language && navigator.language.startsWith('en')) ? 'en' : 'fr';
+  }
+
+  function setMapImageForMode(isDark){
+    const img = document.getElementById('mapImage');
+    if(!img) return;
+    // page is in /pages/ so images are ../assets/images/
+    img.src = isDark ? '../assets/images/world_map_dark.png' : '../assets/images/world_map_bright.png';
+    // small visual tweak
+    img.style.filter = isDark ? 'brightness(.95) contrast(1.03)' : 'none';
+  }
+
+  function applyLanguage(lang){
+    const t = TEXT[lang] || TEXT.fr;
+    const pageTitle = document.getElementById('pageTitle');
+    const pageSubtitle = document.getElementById('pageSubtitle');
+    const legendHeading = document.getElementById('legendHeading');
+    const legendVisited = document.getElementById('legendVisited');
+    const legendWishlist = document.getElementById('legendWishlist');
+    const legendNote = document.getElementById('legendNote');
+    const explainTitle = document.getElementById('explainTitle');
+    const explainText = document.getElementById('explainText');
+    const linkLinkedin = document.getElementById('linkLinkedin');
+    const linkCV = document.getElementById('linkCV');
+
+    if(pageTitle) pageTitle.textContent = t.pageTitle;
+    if(pageSubtitle) pageSubtitle.textContent = t.pageSubtitle;
+    if(legendHeading) legendHeading.textContent = t.legendHeading;
+    if(legendVisited) legendVisited.textContent = t.legendVisited;
+    if(legendWishlist) legendWishlist.textContent = t.legendWishlist;
+    if(legendNote) legendNote.textContent = t.legendNote;
+    if(explainTitle) explainTitle.textContent = t.explainTitle;
+    if(explainText) explainText.textContent = t.explainText;
+    if(linkLinkedin) linkLinkedin.textContent = t.linkedinText;
+    if(linkCV) linkCV.textContent = t.cvText;
+
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'fr';
+
+    // update CV file link to match language
+    if(linkCV) {
+      linkCV.href = (lang === 'en') ? '../assets/pdfs/CV_en.pdf' : '../assets/pdfs/CV_fr.pdf';
+    }
+  }
+
+  function applyDarkMode(enabled){
+    document.body.classList.toggle('dark', !!enabled);
+    setMapImageForMode(!!enabled);
+    const darkToggle = document.getElementById('darkToggle');
+    if(darkToggle) darkToggle.checked = !!enabled;
+  }
+
+  /* ---------- Init ---------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    const langToggle = document.getElementById('langToggle');
+    const darkToggle = document.getElementById('darkToggle');
+
+    // 1) Language init
+    const storedLang = getStoredLang();
+    if(langToggle) langToggle.checked = (storedLang === 'en');
+    applyLanguage(storedLang);
+
+    // 2) Dark mode init: localStorage -> prefers-color-scheme -> default false
+    const darkStored = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const darkEnabled = (darkStored === null) ? prefersDark : (darkStored === 'true');
+    applyDarkMode(darkEnabled);
+
+    // 3) Event listeners
+    if(langToggle){
+      langToggle.addEventListener('change', (e) => {
+        const newLang = e.target.checked ? 'en' : 'fr';
+        localStorage.setItem('siteLang', newLang);
+        applyLanguage(newLang);
+      });
+    }
+    if(darkToggle){
+      darkToggle.addEventListener('change', (e) => {
+        const enabled = e.target.checked;
+        localStorage.setItem('darkMode', enabled);
+        applyDarkMode(enabled);
+      });
+    }
+
+    // 4) sync changes across tabs/windows
+    window.addEventListener('storage', (ev) => {
+      if(ev.key === 'siteLang'){
+        applyLanguage(getStoredLang());
+        const lt = document.getElementById('langToggle');
+        if(lt) lt.checked = (localStorage.getItem('siteLang') === 'en');
+      }
+      if(ev.key === 'darkMode'){
+        const val = (ev.newValue === 'true');
+        applyDarkMode(val);
+      }
+    });
+
+    // ensure the map image matches current computed mode immediately
+    setMapImageForMode(document.body.classList.contains('dark'));
+  });
+  </script>
+</body>
+</html>

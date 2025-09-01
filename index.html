@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>François Bordas — Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <body class="dark">
+
+  <!-- Styles additionnels (placement toggles + layout deux colonnes + header links) -->
+  <style>
+    /* Header : alignement title à gauche, liens au milieu, contrôles en haut à droite */
+    .hero-inner {
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .hero-left {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .header-links {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .header-links a {
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      background:#f3f6ff;
+      color:inherit;
+      font-weight:600;
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+    }
+    .controls {
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* Layout principal : contenu + sidebar */
+    .container {
+      max-width:1100px;
+      margin:30px auto;
+      padding:0 18px;
+    }
+    .content-grid {
+      display:grid;
+      grid-template-columns: 1fr 320px; /* main content | sidebar */
+      gap:22px;
+      align-items:start;
+    }
+
+    /* Cards grid (main content) */
+    .main-section {}
+
+    .sidebar {
+      background:var(--card, #fff);
+      padding:16px;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      font-size:0.95rem;
+      line-height:1.45;
+    }
+
+    .profile-item { margin-bottom:12px; }
+    .profile-item strong { display:block; margin-bottom:6px; }
+
+    .skill-list { display:flex; flex-wrap:wrap; gap:8px; }
+    .skill { background:#f0f6ff; padding:6px 8px; border-radius:8px; font-size:.9rem; }
+
+    .progress {
+      height:10px;
+      background:#d3d3d3;
+      border-radius:8px;
+      overflow:hidden;
+      margin-top:6px;
+    }
+    .progress > span {
+      display:block; height:100%;
+      background:linear-gradient(90deg,#4cafef,#2a9df4);
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .content-grid{ grid-template-columns: 1fr; }
+      .hero-inner{ flex-direction:column; align-items:flex-start; gap:14px; }
+      .controls{ align-self:flex-end; }
+      .header-links{ order:3; width:100%; justify-content:flex-start; gap:8px; }
+      .header-links a{ padding:8px 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <!-- gauche: avatar + titre -->
+      <div class="hero-left">
+        <img class="avatar" src="assets/images/francois.jpg" alt="François Bordas"
+            style="width:150px;height:150px;border-radius:20px;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        <div style="margin-left:1rem;">
+          <h1 id="siteTitle" style="margin:0;">François Bordas — Portfolio</h1>
+          <p id="siteDesc" style="margin:.25rem 0 0;">
+            Ingénieur sérieux et très énergique — ma devise : « Être sérieux sans se prendre au sérieux ! »<br>
+            Judoka en compétition, touche-à-tout et extrêmement curieux, je partage ici mes projets et réalisations.
+          </p>
+        </div>
+      </div>
+
+
+<div class="header-links" aria-hidden="false" style="gap:16px; align-items:center;">
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/françois-bordas13" target="_blank" rel="noopener" style="display:inline-block; width:90px; height:20px;">
+    <img src="assets/images/linkedin.png" alt="LinkedIn" style="width:115%; height:100%; display:block;">
+  </a>
+
+  <!-- CV download button -->
+  <a id="cvLink" href="assets/pdfs/CV_fr.pdf" target="_blank" rel="noopener" 
+     download
+     style="
+       display:inline-flex;
+       align-items:center;
+       gap:6px;
+       padding:8px 12px;
+       background:#fafdff;
+       color:#484848;
+       font-weight:600;
+       border-radius:8px;
+       box-shadow:0 2px 6px rgba(0,0,0,0.2);
+       cursor:pointer;
+       text-decoration:none;
+       transition:all 0.2s ease-in-out;
+     ">
+    ⬇️ <span id="cvText">CV</span>
+  </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const cvLink = document.getElementById('cvLink');
+  const cvText = document.getElementById('cvText');
+  const langToggle = document.getElementById('langToggle');
+
+  function getCurrentLang() {
+    const stored = localStorage.getItem('siteLang');
+    if (stored) return stored === 'en' ? 'en' : 'fr';
+    if (langToggle) return langToggle.checked ? 'en' : 'fr';
+    return (navigator.language && navigator.language.startsWith('en')) ? 'en' : 'fr';
+  }
+
+  function updateCvLink() {
+    if (!cvLink || !cvText) return;
+    const lang = getCurrentLang();
+    cvLink.href = (lang === 'en') ? 'assets/pdfs/CV_en.pdf' : 'assets/pdfs/CV_fr.pdf';
+    cvText.textContent = (lang === 'en') ? 'Resume' : 'CV';
+  }
+
+  updateCvLink();
+
+  if (langToggle) {
+    langToggle.addEventListener('change', function (e) {
+      const newLang = e.target.checked ? 'en' : 'fr';
+      localStorage.setItem('siteLang', newLang);
+      updateCvLink();
+    });
+  }
+
+  window.addEventListener('storage', function (ev) {
+    if (ev.key === 'siteLang') updateCvLink();
+  });
+});
+</script>
+
+
+
+
+
+
+
+      <!-- droite: toggles -->
+      <div class="controls" aria-hidden="false">
+        <!-- Dark/Light mode -->
+        <label class="switch small-switch" title="Mode sombre / clair" style="display:flex;align-items:center;gap:8px;">
+          <span class="icon-label" id="iconMode">☀️</span>
+          <input type="checkbox" id="darkToggle" checked>
+          <span class="slider"></span>
+          <span class="icon-label">🌙</span>
+        </label>
+
+        <!-- Langue -->
+        <label class="switch small-switch" title="FR / EN" style="display:flex;align-items:center;gap:8px;">
+          <span class="icon-label">FR</span>
+          <input type="checkbox" id="langToggle">
+          <span class="slider"></span>
+          <span class="icon-label">EN</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- introduction -->
+    <section class="intro" style="margin-bottom:18px;">
+      <p id="introText">
+        <strong>But :</strong> ce site a pour objectif de présenter tout ce que j'ai pu réaliser dans un format différent et plus complet qu'un CV — chaque case ouvre une page de présentation détaillée.
+      </p>
+    </section>
+
+    <!-- grille principale : contenu + sidebar -->
+    <div class="content-grid">
+      <!-- MAIN CONTENT (cartes par rubrique) -->
+      <div class="main-section">
+        <section class="category">
+          <h1 class="category-title" data-key="formation"></h1>
+          <div class="cards" id="formationCards"></div>
+        </section>
+
+        <section class="category">
+          <h1 class="category-title" data-key="experience"></h1>
+          <div class="cards" id="experienceCards"></div>
+        </section>
+
+        <section class="category">
+          <h1 class="category-title" data-key="loisirs"></h1>
+          <div class="cards" id="loisirsCards"></div>
+        </section>
+
+        <section class="category">
+          <h1 class="category-title" data-key="projets"></h1>
+          <div class="cards" id="projetsCards"></div>
+        </section>
+
+        <section class="category">
+          <h1 class="category-title" data-key="rubrique"></h1>
+          <div class="cards" id="rubriqueCards"></div>
+        </section>
+      </div>
+
+      <!-- SIDEBAR (profil rapide) -->
+<aside class="sidebar" aria-label="Profil rapide">
+  <!-- Informations personnelles -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Anglais</span>
+      <span class="lang-en" style="display:none">English</span>
+    </strong>
+    <div>
+      <span class="lang-fr">TOEIC — <strong>815 / 990</strong></span>
+      <span class="lang-en" style="display:none">TOEIC — <strong>815 / 990</strong></span>
+    </div>
+    <div class="progress" aria-hidden="true"><span style="width:82%"></span></div>
+  </div>
+
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Nationalité</span>
+      <span class="lang-en" style="display:none">Nationality</span>
+    </strong>
+    <div>
+      <span class="lang-fr">Française</span>
+      <span class="lang-en" style="display:none">French</span>
+    </div>
+  </div>
+
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Date de naissance</span>
+      <span class="lang-en" style="display:none">Date of birth</span>
+    </strong>
+    <div>
+      <span class="lang-fr">24/07/2002</span>
+      <span class="lang-en" style="display:none">24/07/2002</span>
+    </div>
+  </div>
+
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Véhicule</span>
+      <span class="lang-en" style="display:none">Vehicle</span>
+    </strong>
+    <div>
+      <span class="lang-fr">Oui — véhiculé</span>
+      <span class="lang-en" style="display:none">Yes — has vehicle</span>
+    </div>
+  </div>
+
+  <!-- Compétences techniques / Technical skills -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Compétences techniques</span>
+      <span class="lang-en" style="display:none">Technical skills</span>
+    </strong>
+    <div style="margin-top:6px;">
+      <ul style="margin:6px 0 0 18px;padding:0;">
+        <li>
+          <span class="lang-fr">Modélisation 3D (Fusion 360 / Sharp3D) et impression 3D (FDM &amp; SLA)</span>
+          <span class="lang-en" style="display:none">3D modelling (Fusion 360 / Sharp3D) and 3D printing (FDM &amp; SLA)</span>
+        </li>
+        <li>
+          <span class="lang-fr">Gestion d’une micro-entreprise d’impression 3D</span>
+          <span class="lang-en" style="display:none">Management of a 3D-printing micro-business</span>
+        </li>
+        <li>
+          <span class="lang-fr">Conception de circuits intégrés (analogique &amp; numérique) — Cadence Virtuoso</span>
+          <span class="lang-en" style="display:none">Integrated circuit design (analog &amp; digital) — Cadence Virtuoso</span>
+        </li>
+        <li>
+          <span class="lang-fr">Architecture processeurs &amp; programmation en VHDL</span>
+          <span class="lang-en" style="display:none">Processor architecture &amp; VHDL programming</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Outils & logiciels / Tools & software -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Outils &amp; logiciels</span>
+      <span class="lang-en" style="display:none">Tools &amp; software</span>
+    </strong>
+    <div class="skill-list" style="margin-top:8px;">
+      <span class="skill"><span class="lang-fr">Cadence Virtuoso</span><span class="lang-en" style="display:none">Cadence Virtuoso</span></span>
+      <span class="skill"><span class="lang-fr">Synopsys</span><span class="lang-en" style="display:none">Synopsys</span></span>
+      <span class="skill"><span class="lang-fr">ADS</span><span class="lang-en" style="display:none">ADS</span></span>
+      <span class="skill"><span class="lang-fr">Fusion 360</span><span class="lang-en" style="display:none">Fusion 360</span></span>
+      <span class="skill"><span class="lang-fr">Sharp3D</span><span class="lang-en" style="display:none">Sharp3D</span></span>
+      <span class="skill"><span class="lang-fr">MATLAB</span><span class="lang-en" style="display:none">MATLAB</span></span>
+      <span class="skill"><span class="lang-fr">Office (Excel, Word)</span><span class="lang-en" style="display:none">Office (Excel, Word)</span></span>
+    </div>
+  </div>
+
+  <!-- Langages / Programming languages -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Langages de programmation</span>
+      <span class="lang-en" style="display:none">Programming languages</span>
+    </strong>
+    <div class="skill-list" style="margin-top:8px;">
+      <span class="skill"><span class="lang-fr">C</span><span class="lang-en" style="display:none">C</span></span>
+      <span class="skill"><span class="lang-fr">C++</span><span class="lang-en" style="display:none">C++</span></span>
+      <span class="skill"><span class="lang-fr">Java</span><span class="lang-en" style="display:none">Java</span></span>
+      <span class="skill"><span class="lang-fr">Python</span><span class="lang-en" style="display:none">Python</span></span>
+      <span class="skill"><span class="lang-fr">VHDL</span><span class="lang-en" style="display:none">VHDL</span></span>
+      <span class="skill"><span class="lang-fr">HTML / CSS / JavaScript</span><span class="lang-en" style="display:none">HTML / CSS / JavaScript</span></span>
+    </div>
+  </div>
+
+  <!-- Appareils de mesure / Measurement equipment -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Appareils de mesure</span>
+      <span class="lang-en" style="display:none">Measurement equipment</span>
+    </strong>
+    <div style="margin-top:6px;">
+      <ul style="margin:6px 0 0 18px;padding:0;">
+        <li>
+          <span class="lang-fr">Oscilloscope</span>
+          <span class="lang-en" style="display:none">Oscilloscope</span>
+        </li>
+        <li>
+          <span class="lang-fr">Multimètre</span>
+          <span class="lang-en" style="display:none">Multimeter</span>
+        </li>
+        <li>
+          <span class="lang-fr">VNA (analyseur de réseau vectoriel)</span>
+          <span class="lang-en" style="display:none">VNA (vector network analyzer)</span>
+        </li>
+        <li>
+          <span class="lang-fr">Analyseur de spectre</span>
+          <span class="lang-en" style="display:none">Spectrum analyzer</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Devise -->
+  <div class="profile-item">
+    <strong>
+      <span class="lang-fr">Devise</span>
+      <span class="lang-en" style="display:none">Motto</span>
+    </strong>
+    <div>
+      <span class="lang-fr" style="font-style:italic;">« Être sérieux sans se prendre au sérieux ! »</span>
+      <span class="lang-en" style="display:none;font-style:italic;">"Be serious without taking yourself seriously!"</span>
+    </div>
+  </div>
+</aside>
+
+
+    </div>
+  </main>
+
+  <footer style="margin-top:28px;padding:18px;text-align:center;background:#eee;color:#333;">
+    <div><strong>François Bordas</strong></div>
+    <div class="contacts" style="display:flex;justify-content:center;gap:12px;margin-top:8px;">
+
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    const darkToggle = document.getElementById('darkToggle');
+
+    // Vérifie localStorage pour garder le choix utilisateur
+    if(localStorage.getItem('darkMode') === 'true'){
+      document.body.classList.add('dark');
+      darkToggle.checked = true;
+    }else if(localStorage.getItem('darkMode') === 'false'){
+      document.body.classList.remove('dark');
+      darkToggle.checked = false;
+    }
+
+    // Toggle dark mode + sauvegarde
+    darkToggle.addEventListener('change', ()=>{
+      const enabled = darkToggle.checked;
+      document.body.classList.toggle('dark', enabled);
+      localStorage.setItem('darkMode', enabled);
+    });
+
+  </script>
+
+  <script>
+// --- Language toggle fix: show/hide .lang-fr / .lang-en and persist ---
+document.addEventListener('DOMContentLoaded', () => {
+  const langToggle = document.getElementById('langToggle');
+  // fallback if missing
+  if(!langToggle) return;
+
+  // determine initial language: localStorage > toggle state > navigator
+  const stored = localStorage.getItem('siteLang');
+  const initLang = stored ? stored : (langToggle.checked ? 'en' : ((navigator.language && navigator.language.startsWith('en')) ? 'en' : 'fr'));
+
+  // apply language visuals: show FR or EN spans
+  function applyLang(lang){
+    const showFr = (lang === 'fr');
+    document.querySelectorAll('.lang-fr').forEach(el => { el.style.display = showFr ? '' : 'none'; });
+    document.querySelectorAll('.lang-en').forEach(el => { el.style.display = showFr ? 'none' : ''; });
+
+    // update header textual elements (safe fallback if other code not present)
+    const siteTitle = document.getElementById('siteTitle');
+    const siteDesc  = document.getElementById('siteDesc');
+    if(siteTitle) siteTitle.textContent = (lang === 'fr') ? 'François Bordas — Portfolio' : 'François Bordas — Portfolio';
+    if(siteDesc) siteDesc.textContent = (lang === 'fr')
+      ? "Ingénieur sérieux et très énergique — ma devise : « Être sérieux sans se prendre au sérieux ! »\nJudoka en compétition, touche-à-tout et extrêmement curieux, je partage ici mes projets et réalisations."
+      : "Serious, hyper-energetic engineer — motto: 'Be serious without taking yourself seriously!'\nCompetitive judoka, jack-of-all-trades and extremely curious — this site gathers my projects and work.";
+  }
+
+  // set toggle checked according to stored language
+  if(stored){
+    langToggle.checked = (stored === 'en');
+  } else {
+    langToggle.checked = (initLang === 'en');
+    localStorage.setItem('siteLang', initLang);
+  }
+
+  // apply initial language
+  applyLang(localStorage.getItem('siteLang') || initLang);
+
+  // listener: user flips toggle -> persist + apply
+  langToggle.addEventListener('change', (e) => {
+    const newLang = e.target.checked ? 'en' : 'fr';
+    localStorage.setItem('siteLang', newLang);
+    applyLang(newLang);
+  });
+});
+</script>
+
+</body>
+</html>

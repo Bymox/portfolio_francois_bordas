@@ -1,0 +1,1 @@
+Thumbnails go here (put small jpg/png files).

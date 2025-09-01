@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expérience — François Bordas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Styles locaux (même logique que formation.html pour cohérence) */
+    .back-link { display:inline-block; margin-right:20px; font-weight:600; text-decoration:none; color:var(--text); }
+    .experience-item { display:flex; align-items:flex-start; gap:16px; margin-bottom:28px; }
+    .experience-item img { width:72px; height:72px; object-fit:contain; border-radius:8px; background:#f0f0f0; padding:6px; }
+    .experience-content h3 { margin:0 0 6px 0; font-size:1.1rem; color:var(--text); }
+    .experience-content p { margin:2px 0; line-height:1.4; font-size:0.95rem; color:var(--text); }
+    .experience-content ul { margin:6px 0 0 18px; padding:0; color:var(--text); }
+    .hero-inner { display:flex; align-items:center; gap:32px; max-width:1100px; margin:0 auto; justify-content:space-between; }
+    .hero-left { display:flex; gap:16px; align-items:center; }
+    .controls { display:flex; gap:12px; align-items:center; }
+    .header-links { display:flex; gap:12px; align-items:center; }
+    .header-links a { text-decoration:none; padding:8px 12px; border-radius:8px; background:#f3f6ff; color:inherit; font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+    @media (max-width:980px){ .hero-inner{ flex-direction:column; align-items:flex-start; gap:14px; } .header-links{ width:100%; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div style="display:flex; align-items:center; gap:24px;">
+        <a id="backLink" href="../index.html" class="back-link">← Retour</a>
+        <div>
+          <h1 id="pageTitle" style="margin:0;">Expérience</h1>
+          <p id="pageSubtitle" style="margin:.25rem 0 0;">Missions, entreprises et apprentissages</p>
+        </div>
+      </div>
+
+      <!-- header links (LinkedIn / CV) -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="header-links" id="headerLinks" style="margin-right:8px;">
+          <a id="linkLinkedin" href="https://www.linkedin.com/in/françois-bordas13" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a id="linkCV" href="../assets/pdfs/CV_fr.pdf" target="_blank" rel="noopener">⬇️ CV</a>
+        </div>
+
+        <div class="controls" aria-hidden="false">
+          <!-- Dark/Light mode toggle -->
+          <label class="switch small-switch" title="Mode sombre / clair" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label" id="iconMode">☀️</span>
+            <input type="checkbox" id="darkToggle">
+            <span class="slider"></span>
+            <span class="icon-label">🌙</span>
+          </label>
+
+          <!-- Language toggle -->
+          <label class="switch small-switch" title="FR / EN" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label">FR</span>
+            <input type="checkbox" id="langToggle">
+            <span class="slider"></span>
+            <span class="icon-label">EN</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="contentArea">
+      <!-- Apprenticeship Avantix -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_avantix.png" alt="Avantix / Atos">
+        <div class="experience-content">
+          <h3 id="exp1_title">Contrat de professionnalisation — Avantix (Atos)</h3>
+          <p id="exp1_period"><strong>Septembre 2025 – Septembre 2026</strong></p>
+          <p id="exp1_desc">Développement et optimisation de chaînes RF — conception et validation de systèmes superhétérodynes.</p>
+          <p id="exp1_long">Ce contrat m'a permis de confirmer mon attrait pour la RF : j'ai réalisé des études, des mesures et des validations en conditions réelles, et j'ai gagné en autonomie pour résoudre des problèmes concrets d'ingénierie.</p>
+          <ul id="exp1_points">
+            <li>Conception et simulation de blocs RF</li>
+            <li>Validation en laboratoire & mesures (VNA, spectrum analyzer)</li>
+            <li>Travail en équipe projet et documentation technique</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- RF Internship Avantix -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_avantix.png" alt="Avantix / Atos">
+        <div class="experience-content">
+          <h3 id="exp2_title">Stage RF Front-End — Avantix (Atos)</h3>
+          <p id="exp2_period"><strong>Juin 2025 – Septembre 2025</strong></p>
+          <p id="exp2_desc">Conception d’un récepteur superhétérodyne RF — du cahier des charges aux mesures sur banc.</p>
+          <p id="exp2_long">Stage très formateur dans mon domaine cible (RF / hyperfréquence) : résolution de problèmes pratiques, optimisation de chaînes front-end et apprentissage des bonnes pratiques d'ingénierie.</p>
+          <ul id="exp2_points">
+            <li>Conception & test d'étages RF</li>
+            <li>Analyse des performances : gain, NF, P1dB</li>
+            <li>Rédaction de rapports et synthèses techniques</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Woofing -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_woofing.png" alt="Woofing">
+        <div class="experience-content">
+          <h3 id="exp3_title">Woofing — Norvège & Suède</h3>
+          <p id="exp3_period"><strong>Juin 2024 – Août 2024</strong></p>
+          <p id="exp3_desc">Agriculture, construction d'abris et soins aux animaux — un séjour à l'étranger riche en expérience terrain.</p>
+          <p id="exp3_long">Le woofing a validé mes semaines à l'étranger pour le parcours d'ingénieur : immersion, débrouillardise et découverte de cultures de travail différentes.</p>
+          <ul id="exp3_points">
+            <li>Travail manuel et collecte de retours terrain</li>
+            <li>Adaptation à des environnements nouveaux</li>
+            <li>Développement d'autonomie et d'esprit d'équipe</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- IPSOS Electric -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_ipsos.png" alt="IPSOS Electric">
+        <div class="experience-content">
+          <h3 id="exp4_title">Technicien itinérant — IPSOS Electric</h3>
+          <p id="exp4_period"><strong>Juil. 2022 – Août 2023</strong></p>
+          <p id="exp4_desc">Préparation, mise en service et maintenance d'onduleurs et de groupes électrogènes sur sites variés.</p>
+          <p id="exp4_long">Contrat étudiant pendant ma deuxième année de BTS : pont concret entre études et pratique professionnelle. Interventions sur sites spécialisés (recherche océanographique, hôpitaux, usines), ce qui m'a beaucoup appris sur les contraintes industrielles.</p>
+          <ul id="exp4_points">
+            <li>Mise en service et maintenance d'équipements électriques</li>
+            <li>Travail sur sites exigeants et procédures de sécurité</li>
+            <li>Relation client et gestion d'interventions</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Robin Nurseries -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_robin.png" alt="Pépinières Robin">
+        <div class="experience-content">
+          <h3 id="exp5_title">Employé multitâches — Pépinières Robin</h3>
+          <p id="exp5_period"><strong>Mars 2021 – Juil. 2021</strong></p>
+          <p id="exp5_desc">Mise en place des plantes, préparation d'engrais et conduite de véhicules adaptés.</p>
+          <p id="exp5_long">Expérience formatrice : conduite de matériels (tracteur, remorque), suivi culturale des plantes et travail d'équipe — apprentissages pratiques solides.</p>
+          <ul id="exp5_points">
+            <li>Soins et culture des plantes</li>
+            <li>Conduite de véhicules spécifiques</li>
+            <li>Organisation et travail manuel</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Action Sisteron -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_action.png" alt="Action Sisteron">
+        <div class="experience-content">
+          <h3 id="exp6_title">Employé polyvalent — Action Sisteron</h3>
+          <p id="exp6_period"><strong>Juin 2020 – Août 2020</strong></p>
+          <p id="exp6_desc">Mise en rayon, caisse et gestion du stock.</p>
+          <p id="exp6_long">Travail peu technique mais utile pour la rigueur quotidienne : principalement en caisses et en mise en rayon.</p>
+          <ul id="exp6_points">
+            <li>Gestion de la caisse</li>
+            <li>Mise en rayon et inventaire</li>
+            <li>Relation clientèle</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Pizzeria des Arcades -->
+      <article class="experience-item">
+        <img src="../assets/images/logo_pizzeria.png" alt="Pizzeria des Arcades">
+        <div class="experience-content">
+          <h3 id="exp7_title">Commis de cuisine — Pizzeria des Arcades</h3>
+          <p id="exp7_period"><strong>Juin 2019 – Août 2019</strong></p>
+          <p id="exp7_desc">Préparation et dressage des assiettes — mon premier travail à 16 ans.</p>
+          <p id="exp7_long">Mon premier emploi : découverte du monde du travail, apprentissage des règles d'hygiène, gestion des plats, préparation, service et respect du rythme en cuisine.</p>
+          <ul id="exp7_points">
+            <li>Préparation des plats et dressage</li>
+            <li>Gestion des denrées et hygiène</li>
+            <li>Service et travail en équipe</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- footer (optionnel, peut être activé) -->
+  <!-- <footer style="margin-top:28px;padding:18px;text-align:center;background:#eee;color:#333;">
+    <a id="footerBack" href="../index.html">← Retour</a>
+  </footer> -->
+
+<script>
+/* ---------- Translations ---------- */
+const TEXT = {
+  fr: {
+    pageTitle: "Expérience",
+    pageSubtitle: "Missions, entreprises et apprentissages",
+    back: "← Retour",
+    linkedinText: "🔗 LinkedIn",
+    cvText: "⬇️ CV",
+
+    exp1_title: "Contrat de professionnalisation — Avantix (Atos)",
+    exp1_period: "Septembre 2025 – Septembre 2026",
+    exp1_desc: "Développement et optimisation de chaînes RF — conception et validation de systèmes superhétérodynes.",
+    exp1_long: "Ce contrat m'a permis de confirmer mon attrait pour la RF : j'ai réalisé des études, des mesures et des validations en conditions réelles, et j'ai gagné en autonomie pour résoudre des problèmes concrets d'ingénierie.",
+    exp1_points: [
+      "Conception et simulation de blocs RF",
+      "Validation en laboratoire & mesures (VNA, analyseur de spectre)",
+      "Travail en équipe projet et documentation technique"
+    ],
+
+    exp2_title: "Stage RF Front-End — Avantix (Atos)",
+    exp2_period: "Juin 2025 – Septembre 2025",
+    exp2_desc: "Conception d’un récepteur superhétérodyne RF — du cahier des charges aux mesures sur banc.",
+    exp2_long: "Stage très formateur dans mon domaine cible (RF / hyperfréquence) : résolution de problèmes pratiques, optimisation de chaînes front-end et apprentissage des bonnes pratiques d'ingénierie.",
+    exp2_points: [
+      "Conception & test d'étages RF",
+      "Analyse des performances : gain, NF, P1dB",
+      "Rédaction de rapports et synthèses techniques"
+    ],
+
+    exp3_title: "Woofing — Norvège & Suède",
+    exp3_period: "Juin 2024 – Août 2024",
+    exp3_desc: "Agriculture, construction d'abris et soins aux animaux — un séjour à l'étranger riche en expérience terrain.",
+    exp3_long: "Le woofing a validé mes semaines à l'étranger pour le parcours d'ingénieur : immersion, débrouillardise et découverte de cultures de travail différentes.",
+    exp3_points: [
+      "Travail manuel et collecte de retours terrain",
+      "Adaptation à des environnements nouveaux",
+      "Développement d'autonomie et d'esprit d'équipe"
+    ],
+
+    exp4_title: "Technicien itinérant — IPSOS Electric",
+    exp4_period: "Juil. 2022 – Août 2023",
+    exp4_desc: "Préparation, mise en service et maintenance d'onduleurs et de groupes électrogènes sur sites variés.",
+    exp4_long: "Contrat étudiant pendant ma deuxième année de BTS : pont concret entre études et pratique professionnelle. Interventions sur sites spécialisés (recherche océanographique, hôpitaux, usines), ce qui m'a beaucoup appris sur les contraintes industrielles.",
+    exp4_points: [
+      "Mise en service et maintenance d'équipements électriques",
+      "Travail sur sites exigeants et procédures de sécurité",
+      "Relation client et gestion d'interventions"
+    ],
+
+    exp5_title: "Employé multitâches — Pépinières Robin",
+    exp5_period: "Mars 2021 – Juil. 2021",
+    exp5_desc: "Mise en place des plantes, préparation d'engrais et conduite de véhicules adaptés.",
+    exp5_long: "Expérience formatrice : conduite de matériels (tracteur, remorque), suivi culturale des plantes et travail d'équipe — apprentissages pratiques solides.",
+    exp5_points: [
+      "Soins et culture des plantes",
+      "Conduite de véhicules spécifiques",
+      "Organisation et travail manuel"
+    ],
+
+    exp6_title: "Employé polyvalent — Action Sisteron",
+    exp6_period: "Juin 2020 – Août 2020",
+    exp6_desc: "Mise en rayon, caisse et gestion du stock.",
+    exp6_long: "Travail peu technique mais utile pour la rigueur quotidienne : principalement en caisses et en mise en rayon.",
+    exp6_points: [
+      "Gestion de la caisse",
+      "Mise en rayon et inventaire",
+      "Relation clientèle"
+    ],
+
+    exp7_title: "Commis de cuisine — Pizzeria des Arcades",
+    exp7_period: "Juin 2019 – Août 2019",
+    exp7_desc: "Préparation et dressage des assiettes — mon premier travail à 16 ans.",
+    exp7_long: "Mon premier emploi : découverte du monde du travail, apprentissage des règles d'hygiène, gestion des plats, préparation, service et respect du rythme en cuisine.",
+    exp7_points: [
+      "Préparation des plats et dressage",
+      "Gestion des denrées et hygiène",
+      "Service et travail en équipe"
+    ]
+  },
+
+  en: {
+    pageTitle: "Professional Experience",
+    pageSubtitle: "Roles, companies and lessons learned",
+    back: "← Back",
+    linkedinText: "🔗 LinkedIn",
+    cvText: "⬇️ CV",
+
+    exp1_title: "Apprenticeship — Avantix (Atos)",
+    exp1_period: "September 2025 – September 2026",
+    exp1_desc: "Development and optimization of RF chains — design & validation of superheterodyne systems.",
+    exp1_long: "This apprenticeship confirmed my interest in RF: I carried out studies, measurements and validations in real conditions and gained autonomy in solving concrete engineering problems.",
+    exp1_points: [
+      "RF block design and simulation",
+      "Laboratory validation & measurements (VNA, spectrum analyzer)",
+      "Project teamwork and technical documentation"
+    ],
+
+    exp2_title: "RF Front-End Internship — Avantix (Atos)",
+    exp2_period: "June 2025 – September 2025",
+    exp2_desc: "Design of a superheterodyne RF receiver — from specs to bench measurements.",
+    exp2_long: "A very instructive internship in my target domain (RF / microwave): practical problem solving, front-end optimization and engineering best practices.",
+    exp2_points: [
+      "Design & testing of RF stages",
+      "Performance analysis: gain, NF, P1dB",
+      "Report writing and technical summaries"
+    ],
+
+    exp3_title: "Woofing — Norway & Sweden",
+    exp3_period: "June 2024 – August 2024",
+    exp3_desc: "Farming, shelter construction and animal care — a hands-on international experience.",
+    exp3_long: "Woofing validated my time abroad for the engineering track: immersion, resourcefulness and exposure to different working cultures.",
+    exp3_points: [
+      "Manual work and field feedback collection",
+      "Adapting to new environments",
+      "Developing autonomy and teamwork"
+    ],
+
+    exp4_title: "Field Technician — IPSOS Electric",
+    exp4_period: "July 2022 – August 2023",
+    exp4_desc: "Setup, commissioning and maintenance of inverters and generators on varied sites.",
+    exp4_long: "A student contract during my second BTS year: concrete bridge between studies and professional practice. Interventions on specialized sites (oceanographic research, hospitals, factories) provided deep industrial insights.",
+    exp4_points: [
+      "Commissioning and maintenance of electrical equipment",
+      "Work on demanding sites and safety procedures",
+      "Customer relations and intervention management"
+    ],
+
+    exp5_title: "Multitask worker — Robin Nurseries",
+    exp5_period: "March 2021 – July 2021",
+    exp5_desc: "Plant placement, fertilizer preparation and driving adapted vehicles.",
+    exp5_long: "Valuable hands-on experience: vehicle operation (tractor, trailer), plant care and teamwork — practical skills acquired.",
+    exp5_points: [
+      "Plant care and cultivation",
+      "Operation of specific vehicles",
+      "Organization and manual work"
+    ],
+
+    exp6_title: "Retail Assistant — Action Sisteron",
+    exp6_period: "June 2020 – August 2020",
+    exp6_desc: "Shelf stocking, cashier and inventory tasks.",
+    exp6_long: "A modest job but useful for daily discipline: mainly cashier work and shelving.",
+    exp6_points: [
+      "Cash handling",
+      "Stocking and inventory",
+      "Customer service"
+    ],
+
+    exp7_title: "Kitchen assistant — Pizzeria des Arcades",
+    exp7_period: "June 2019 – August 2019",
+    exp7_desc: "Food preparation and plating — my first job at 16.",
+    exp7_long: "My first job: introduction to the working world, learning hygiene rules, food management, preparation, service and pace in a kitchen.",
+    exp7_points: [
+      "Food prep and plating",
+      "Inventory & hygiene management",
+      "Service and teamwork"
+    ]
+  }
+};
+
+/* ---------- Helpers to render content ---------- */
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (Array.isArray(value)) {
+    el.innerHTML = value.map(li => `<li>${li}</li>`).join('');
+  } else {
+    el.textContent = value;
+  }
+}
+
+/* ---------- Language & Dark Mode initialisation ---------- */
+const langToggle = document.getElementById('langToggle');
+const darkToggle = document.getElementById('darkToggle');
+
+function applyLanguage(lang){
+  const t = TEXT[lang] || TEXT.fr;
+
+  // header / meta
+  const pageTitleEl = document.getElementById('pageTitle');
+  if(pageTitleEl) pageTitleEl.textContent = t.pageTitle;
+
+  const pageSubEl = document.getElementById('pageSubtitle');
+  if(pageSubEl) pageSubEl.textContent = t.pageSubtitle;
+
+  const backLinkEl = document.getElementById('backLink');
+  if(backLinkEl) backLinkEl.textContent = t.back;
+
+  const linkLinkedinEl = document.getElementById('linkLinkedin');
+  if(linkLinkedinEl) linkLinkedinEl.textContent = t.linkedinText;
+
+  const linkCVEl = document.getElementById('linkCV');
+  if(linkCVEl) linkCVEl.textContent = t.cvText;
+
+  // expérience 1
+  setText('exp1_title', t.exp1_title);
+  setText('exp1_period', t.exp1_period);
+  setText('exp1_desc', t.exp1_desc);
+  setText('exp1_long', t.exp1_long);
+  setText('exp1_points', t.exp1_points);
+
+  // expérience 2
+  setText('exp2_title', t.exp2_title);
+  setText('exp2_period', t.exp2_period);
+  setText('exp2_desc', t.exp2_desc);
+  setText('exp2_long', t.exp2_long);
+  setText('exp2_points', t.exp2_points);
+
+  // expérience 3
+  setText('exp3_title', t.exp3_title);
+  setText('exp3_period', t.exp3_period);
+  setText('exp3_desc', t.exp3_desc);
+  setText('exp3_long', t.exp3_long);
+  setText('exp3_points', t.exp3_points);
+
+  // expérience 4
+  setText('exp4_title', t.exp4_title);
+  setText('exp4_period', t.exp4_period);
+  setText('exp4_desc', t.exp4_desc);
+  setText('exp4_long', t.exp4_long);
+  setText('exp4_points', t.exp4_points);
+
+  // expérience 5
+  setText('exp5_title', t.exp5_title);
+  setText('exp5_period', t.exp5_period);
+  setText('exp5_desc', t.exp5_desc);
+  setText('exp5_long', t.exp5_long);
+  setText('exp5_points', t.exp5_points);
+
+  // expérience 6
+  setText('exp6_title', t.exp6_title);
+  setText('exp6_period', t.exp6_period);
+  setText('exp6_desc', t.exp6_desc);
+  setText('exp6_long', t.exp6_long);
+  setText('exp6_points', t.exp6_points);
+
+  // expérience 7
+  setText('exp7_title', t.exp7_title);
+  setText('exp7_period', t.exp7_period);
+  setText('exp7_desc', t.exp7_desc);
+  setText('exp7_long', t.exp7_long);
+  setText('exp7_points', t.exp7_points);
+
+  // update html lang attribute
+  document.documentElement.lang = (lang === 'en') ? 'en' : 'fr';
+}
+
+/* Apply dark mode based on localStorage (persist) */
+function applyDarkMode(enabled){
+  document.body.classList.toggle('dark', !!enabled);
+  if(darkToggle) darkToggle.checked = !!enabled;
+}
+
+/* Init on load */
+document.addEventListener('DOMContentLoaded', function(){
+  // Language: prefer localStorage.siteLang, fallback to navigator.language or 'fr'
+  let lang = localStorage.getItem('siteLang');
+  if(!lang){
+    lang = (navigator.language && navigator.language.startsWith('en')) ? 'en' : 'fr';
+  }
+  if(langToggle) langToggle.checked = (lang === 'en');
+  applyLanguage(lang);
+
+  // Dark mode: prefer localStorage, fallback to true (enable dark by default if not set)
+  let darkStored = localStorage.getItem('darkMode');
+  let darkEnabled = darkStored === null ? true : (darkStored === 'true');
+  applyDarkMode(darkEnabled);
+
+  // Sync toggles and persist changes
+  if(langToggle){
+    langToggle.addEventListener('change', (e) => {
+      const newLang = e.target.checked ? 'en' : 'fr';
+      localStorage.setItem('siteLang', newLang);
+      applyLanguage(newLang);
+    });
+  }
+
+  if(darkToggle){
+    darkToggle.addEventListener('change', (e) => {
+      const enabled = e.target.checked;
+      localStorage.setItem('darkMode', enabled);
+      applyDarkMode(enabled);
+    });
+  }
+});
+</script>
+</body>
+</html>

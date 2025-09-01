@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation — François Bordas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .back-link { display:inline-block; margin-right:20px; font-weight:600; text-decoration:none; color:var(--text); }
+    .formation-item { display:flex; align-items:flex-start; gap:16px; margin-bottom:28px; }
+    .formation-item img { width:72px; height:72px; object-fit:contain; border-radius:8px; background:#f0f0f0; padding:6px; }
+    .formation-content h3 { margin:0 0 6px 0; font-size:1.2rem; color:var(--text); }
+    .formation-content p { margin:2px 0; line-height:1.4; font-size:0.95rem; color:var(--text); }
+    .formation-content ul { margin:6px 0 0 18px; padding:0; color:var(--text); }
+    /* small inline layout helpers to keep page consistent */
+    .hero-inner { display:flex; align-items:center; gap:32px; max-width:1100px; margin:0 auto; justify-content:space-between; }
+    .hero-left { display:flex; gap:16px; align-items:center; }
+    .controls { display:flex; gap:12px; align-items:center; }
+    .header-links { display:flex; gap:12px; align-items:center; }
+    .header-links a { text-decoration:none; padding:8px 12px; border-radius:8px; background:#f3f6ff; color:inherit; font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+    @media (max-width:980px){ .hero-inner{ flex-direction:column; align-items:flex-start; gap:14px; } .header-links{ width:100%; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div style="display:flex; align-items:center; gap:24px;">
+        <a id="backLink" href="../index.html" class="back-link">← Retour</a>
+        <div>
+          <h1 id="pageTitle" style="margin:0;">Formation</h1>
+          <p id="pageSubtitle" style="margin:.25rem 0 0;">CV et diplômes — Compétences et expériences acquises</p>
+        </div>
+      </div>
+
+      <!-- controls top-right: (optional header-links kept empty here) -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="header-links" id="headerLinks" style="margin-right:8px;">
+          <!-- optional links (kept for consistency) -->
+          <a id="linkLinkedin" href="https://www.linkedin.com/in/françois-bordas13" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a id="linkCV" href="../assets/pdfs/CV.pdf" target="_blank" rel="noopener">⬇️ CV</a>
+        </div>
+
+        <div class="controls" aria-hidden="false">
+          <!-- Dark/Light mode toggle -->
+          <label class="switch small-switch" title="Mode sombre / clair" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label" id="iconMode">☀️</span>
+            <input type="checkbox" id="darkToggle">
+            <span class="slider"></span>
+            <span class="icon-label">🌙</span>
+          </label>
+
+          <!-- Language toggle -->
+          <label class="switch small-switch" title="FR / EN" style="display:flex;align-items:center;gap:8px;">
+            <span class="icon-label">FR</span>
+            <input type="checkbox" id="langToggle">
+            <span class="slider"></span>
+            <span class="icon-label">EN</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- content placeholders filled by JS according to language -->
+    <div id="contentArea">
+      <!-- École d'ingénieur -->
+      <article class="formation-item">
+        <img src="../assets/images/logo_polytech.png" alt="Polytech Marseille">
+        <div class="formation-content">
+          <h3 id="edu1_title">Ingénieur Microélectronique & Télécommunications</h3>
+          <p id="edu1_dates"><strong>2023 – 2026 • Polytech Marseille</strong></p>
+          <p id="edu1_desc">Conception, développement et étude de systèmes électroniques et de télécommunications.</p>
+          <p id="edu1_proj">Projet de recherche : métrologie des sols avec le laboratoire Fresnel.</p>
+          <p>Compétences acquises :</p>
+          <ul id="edu1_skills">
+            <li>Apprentissage du métier d’ingénieur et rôle dans un domaine scientifique</li>
+            <li>Utilisation d’appareils de mesure : oscilloscopes, spectrum analyzers, VNA</li>
+            <li>Logiciels : Cadence Virtuoso, Synopsis, EpsiMu, ADS</li>
+            <li>Connaissances avancées en hyperfréquence, RF, électronique analogique et numérique, microélectronique</li>
+            <li>Programmation (Python, C++, MATLAB…)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- BTS -->
+      <article class="formation-item">
+        <img src="../assets/images/logo_LMA.png" alt="Lycée Militaire d’Aix-en-Provence">
+        <div class="formation-content">
+          <h3 id="edu2_title">BTS Systèmes Numériques — option Électronique et Communication</h3>
+          <p id="edu2_dates"><strong>2021 – 2023 • Lycée Militaire d’Aix-en-Provence</strong></p>
+          <p id="edu2_desc">Électronique numérique et analogique, programmation web, communication entre appareils.</p>
+          <p>Valeurs et compétences développées :</p>
+          <ul id="edu2_skills">
+            <li>Rigueur et excellence académique</li>
+            <li>Dépassement de soi, esprit d’équipe et cohésion</li>
+            <li>Approche méthodique et pratique des systèmes électroniques</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Baccalauréat -->
+      <article class="formation-item">
+        <img src="../assets/images/logo_bac.png" alt="Baccalauréat">
+        <div class="formation-content">
+          <h3 id="edu3_title">Baccalauréat Scientifique — option Mathématiques</h3>
+          <p id="edu3_dates"><strong>2017 – 2020 • Lycée Pierre Gilles de Gennes, Digne-les-Bains</strong></p>
+          <p id="edu3_desc">Baccalauréat scientifique, mention Bien, option Sciences de la Vie et de la Terre.</p>
+          <p>Compétences et apprentissages :</p>
+          <ul id="edu3_skills">
+            <li>Bases solides en sciences et mathématiques</li>
+            <li>Conception et expérimentation scientifique</li>
+            <li>Capacité d’analyse et résolution de problèmes</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </main>
+<!-- 
+  <footer style="margin-top:28px;padding:18px;text-align:center;background:#eee;color:#333;">
+    <a id="footerBack" href="../index.html">← Retour</a>
+  </footer> -->
+
+<script>
+/* ---------- Translations ---------- */
+const TEXT = {
+  fr: {
+    pageTitle: "Formation",
+    pageSubtitle: "CV et diplômes — Compétences et expériences acquises",
+    back: "← Retour",
+    footerBack: "← Retour",
+    edu1_title: "Ingénieur Microélectronique & Télécommunications",
+    edu1_dates: "2023 – 2026 • Polytech Marseille",
+    edu1_desc: "Conception, développement et étude de systèmes électroniques et de télécommunications.",
+    edu1_proj: "Projet de recherche : métrologie des sols avec le laboratoire Fresnel.",
+    edu1_skills: [
+      "Apprentissage du métier d’ingénieur et rôle dans un domaine scientifique",
+      "Utilisation d'appareils de mesure : oscilloscopes, analyseurs de spectre, VNA",
+      "Logiciels : Cadence Virtuoso, Synopsis, EpsiMu, ADS",
+      "Connaissances avancées en hyperfréquence, RF, électronique analogique et numérique, microélectronique",
+      "Programmation (Python, C++, MATLAB…)"
+    ],
+    edu2_title: "BTS Systèmes Numériques — option Électronique et Communication",
+    edu2_dates: "2021 – 2023 • Lycée Militaire d’Aix-en-Provence",
+    edu2_desc: "Électronique numérique et analogique, programmation web, communication entre appareils.",
+    edu2_skills: [
+      "Rigueur et excellence académique",
+      "Dépassement de soi, esprit d’équipe et cohésion",
+      "Approche méthodique et pratique des systèmes électroniques"
+    ],
+    edu3_title: "Baccalauréat Scientifique — option Mathématiques",
+    edu3_dates: "2017 – 2020 • Lycée Pierre Gilles de Gennes, Digne-les-Bains",
+    edu3_desc: "Baccalauréat scientifique, mention Bien, option Sciences de la Vie et de la Terre.",
+    edu3_skills: [
+      "Bases solides en sciences et mathématiques",
+      "Conception et expérimentation scientifique",
+      "Capacité d’analyse et résolution de problèmes"
+    ],
+    linkedinText: "🔗 LinkedIn",
+    cvText: "⬇️ CV"
+  },
+  en: {
+    pageTitle: "Education",
+    pageSubtitle: "Degrees & diplomas — Skills and experience acquired",
+    back: "← Back",
+    footerBack: "← Back",
+    edu1_title: "Engineering — Microelectronics & Telecommunications",
+    edu1_dates: "2023 – 2026 • Polytech Marseille",
+    edu1_desc: "Design, development and study of electronic systems and telecommunications.",
+    edu1_proj: "Research project: soil metrology with the Fresnel laboratory.",
+    edu1_skills: [
+      "Understanding the engineering profession and its role in scientific domains",
+      "Use of measurement equipment: oscilloscopes, spectrum analyzers, VNA",
+      "Tools: Cadence Virtuoso, Synopsys, EpsiMu, ADS",
+      "Knowledge in microwave/RF, analog & digital electronics, microelectronics",
+      "Programming (Python, C++, MATLAB…)"
+    ],
+    edu2_title: "BTS Digital Systems — Electronics & Communication option",
+    edu2_dates: "2021 – 2023 • Lycée Militaire d’Aix-en-Provence",
+    edu2_desc: "Digital and analog electronics, web programming, device-to-device communication.",
+    edu2_skills: [
+      "Rigor and academic excellence",
+      "Self-improvement, teamwork and cohesion",
+      "Methodical and practical approach to electronic systems"
+    ],
+    edu3_title: "Scientific Baccalaureate — Mathematics option",
+    edu3_dates: "2017 – 2020 • Lycée Pierre Gilles de Gennes, Digne-les-Bains",
+    edu3_desc: "Scientific baccalaureate, honors, SVT option.",
+    edu3_skills: [
+      "Strong fundamentals in science and mathematics",
+      "Design and scientific experimentation",
+      "Analytical and problem-solving skills"
+    ],
+    linkedinText: "🔗 LinkedIn",
+    cvText: "⬇️ CV"
+  }
+};
+
+/* ---------- Helpers to render content ---------- */
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(Array.isArray(value)){
+    el.innerHTML = value.map(li => `<li>${li}</li>`).join('');
+  } else {
+    el.textContent = value;
+  }
+}
+
+/* ---------- Language & Dark Mode initialisation ---------- */
+const langToggle = document.getElementById('langToggle');
+const darkToggle = document.getElementById('darkToggle');
+
+function applyLanguage(lang){
+  const t = TEXT[lang] || TEXT.fr;
+
+  // header / meta
+  const siteTitleEl = document.getElementById('pageTitle');
+  if(siteTitleEl) siteTitleEl.textContent = t.pageTitle;
+
+  const siteSubEl = document.getElementById('pageSubtitle');
+  if(siteSubEl) siteSubEl.textContent = t.pageSubtitle;
+
+  const backLinkEl = document.getElementById('backLink');
+  if(backLinkEl) backLinkEl.textContent = t.back;
+
+  const footerBackEl = document.getElementById('footerBack');
+  if(footerBackEl) footerBackEl.textContent = t.footerBack;
+
+  const linkLinkedinEl = document.getElementById('linkLinkedin');
+  if(linkLinkedinEl) linkLinkedinEl.textContent = t.linkedinText;
+
+  const linkCVEl = document.getElementById('linkCV');
+  if(linkCVEl) linkCVEl.textContent = t.cvText;
+
+  // contenus de formation (utilise setText qui est déjà sûr)
+  setText('edu1_title', t.edu1_title);
+  setText('edu1_dates', t.edu1_dates);
+  setText('edu1_desc', t.edu1_desc);
+  setText('edu1_proj', t.edu1_proj);
+  setText('edu1_skills', t.edu1_skills);
+
+  setText('edu2_title', t.edu2_title);
+  setText('edu2_dates', t.edu2_dates);
+  setText('edu2_desc', t.edu2_desc);
+  setText('edu2_skills', t.edu2_skills);
+
+  setText('edu3_title', t.edu3_title);
+  setText('edu3_dates', t.edu3_dates);
+  setText('edu3_desc', t.edu3_desc);
+  setText('edu3_skills', t.edu3_skills);
+
+  // update html lang attribute
+  document.documentElement.lang = (lang === 'en') ? 'en' : 'fr';
+}
+
+/* Apply dark mode based on localStorage (persist) */
+function applyDarkMode(enabled){
+  document.body.classList.toggle('dark', !!enabled);
+  if(darkToggle) darkToggle.checked = !!enabled;
+}
+
+/* Init on load */
+document.addEventListener('DOMContentLoaded', function(){
+  // Language: prefer localStorage.siteLang, fallback to navigator.language or 'fr'
+  let lang = localStorage.getItem('siteLang');
+  if(!lang){
+    lang = (navigator.language && navigator.language.startsWith('en')) ? 'en' : 'fr';
+  }
+  if(langToggle) langToggle.checked = (lang === 'en');
+  applyLanguage(lang);
+
+  // Dark mode: prefer localStorage, fallback to true (enable dark by default if not set)
+  let darkStored = localStorage.getItem('darkMode');
+  let darkEnabled = darkStored === null ? true : (darkStored === 'true'); // default false
+  // If you want dark ON by default, change previous line to: let darkEnabled = darkStored === null ? true : (darkStored === 'true');
+  applyDarkMode(darkEnabled);
+
+  // Sync toggles and persist changes
+  if(langToggle){
+    langToggle.addEventListener('change', (e) => {
+      const newLang = e.target.checked ? 'en' : 'fr';
+      localStorage.setItem('siteLang', newLang);
+      applyLanguage(newLang);
+    });
+  }
+
+  if(darkToggle){
+    darkToggle.addEventListener('change', (e) => {
+      const enabled = e.target.checked;
+      localStorage.setItem('darkMode', enabled);
+      applyDarkMode(enabled);
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "rubrique": [
+    {
+      "title": "Spurious Finder",
+      "url": "pages/rubrique.html",
+      "desc": "Calcul des produits de m\u00e9lange",
+      "icon": "\ud83d\udce1"
+    },
+    {
+      "title": "Architecture Verif",
+      "url": "pages/rubrique.html",
+      "desc": "Calcul gain / NF / P1dB",
+      "icon": "\u2699\ufe0f"
+    },
+    {
+      "title": "Sims Cha\u00eene",
+      "url": "pages/rubrique.html",
+      "desc": "Simulateur cha\u00eene RF",
+      "icon": "\ud83e\uddea"
+    }
+  ],
+  "formation": [
+    {
+      "title": "Master T\u00e9l\u00e9com",
+      "url": "pages/formation.html",
+      "desc": "Polytech Marseille",
+      "icon": "\ud83c\udf93"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Stage - Entreprise X",
+      "url": "pages/experience.html",
+      "desc": "Conception RF",
+      "icon": "\ud83c\udfe2"
+    }
+  ],
+  "loisirs": [
+    {
+      "title": "Photo",
+      "url": "pages/loisirs.html",
+      "desc": "Photographie argentique",
+      "icon": "\ud83d\udcf7"
+    }
+  ],
+  "projets": [
+    {
+      "title": "Spurious Finder (web)",
+      "url": "pages/projets.html",
+      "desc": "Outil JS/HTML",
+      "icon": "\ud83d\udee0\ufe0f"
+    }
+  ]
+}
